@@ -1,7 +1,9 @@
+import sys
 import pandas as pd
 
 # Found here: https://stackoverflow.com/a/61033063
 def scale_number(number):
+    print(number)
     min = 48696
     max = 67291
     return int((number - min) / (max - min))
@@ -10,7 +12,8 @@ def scale_number(number):
 # Found here: https://realpython.com/python-histograms/#histograms-in-pure-python
 def ascii_histogram(seq):
     for k in range(len(seq)):
-        print("{0:5d} {1}".format(k, "+" * scale_number(seq[k])))
+        print(scale_number(seq[k]))
+        # print("{0:5d} {1}".format(k, "+" * scale_number(seq[k])))
 
 
 def read_csv():
