@@ -8,9 +8,9 @@ def scale_number(number):
 
 # Found here: https://realpython.com/python-histograms/#histograms-in-pure-python
 def ascii_histogram(seq):
-    df = pd.DataFrame(seq)
-    for k in sorted(seq):
-        print('{0:5d} {1}'.format(k, '+' * scale_number(seq[k])))
+    for k in len(seq):
+        print("{0:5d} {1}".format(k, "+" * scale_number(seq[k])))
+
 
 def read_csv():
     data = pd.read_csv('2015 Q1.csv', header=0)
