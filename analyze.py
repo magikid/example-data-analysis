@@ -1,8 +1,13 @@
 import pandas as pd
 
+# Found here: https://stackoverflow.com/a/61033063
+def scale_number(number):
+    min = 1
+    max = 20
+    return int((number - min) / (max - min))
 def ascii_histogram(seq):
     for k in sorted(seq):
-        print('{0:5d} {1}'.format(k, '+' * seq[k]))
+        print('{0:5d} {1}'.format(k, '+' * scale_number(seq[k])))
 
 def read_csv():
     data = pd.read_csv('2015 Q1.csv', header=0)
