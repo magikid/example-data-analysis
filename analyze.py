@@ -2,12 +2,13 @@ import pandas as pd
 
 # Found here: https://stackoverflow.com/a/61033063
 def scale_number(number):
-    min = 1
-    max = 20
+    min = 48696
+    max = 67291
     return int((number - min) / (max - min))
 
 # Found here: https://realpython.com/python-histograms/#histograms-in-pure-python
 def ascii_histogram(seq):
+    df = pd.DataFrame(seq)
     for k in sorted(seq):
         print('{0:5d} {1}'.format(k, '+' * scale_number(seq[k])))
 
@@ -29,7 +30,7 @@ def clean_data(data):
     return cleaned_data
 
 def analyze_data(data):
-    days = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+    days = [0, 0, 0, 0, 0, 0, 0]
     for (_, row) in data.iterrows():
         days[row['Start date'].dayofweek] += 1
     ascii_histogram(days)
