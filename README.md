@@ -33,4 +33,4 @@ I have three functions marked by comments that are doing analysis of the data.  
 Each of my analyses print out their results to the console.  One of them prints out a histogram of the data.  This area still needs work.
 
 ### Interpret your data and graphical output
-
+I have included the interpretation in the output for the ride length statistics.
