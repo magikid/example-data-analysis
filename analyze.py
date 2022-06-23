@@ -4,7 +4,7 @@ import pandas as pd
 def scale_number(number):
     min = 48696
     max = 67291
-    scale_factor = 20
+    scale_factor = 80
     return int((number - min) / (max - min) * scale_factor)
 
 
