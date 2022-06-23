@@ -1,12 +1,12 @@
 import sys
 import pandas as pd
 
-# Found here: https://stackoverflow.com/a/61033063
+# Found here: https://stackoverflow.com/a/66015360
 def scale_number(number):
-    print(number)
     min = 48696
     max = 67291
-    return int((number - min) / (max - min))
+    scale_factor = 20
+    return int((number - min) / (max - min) * scale_factor)
 
 
 # Found here: https://realpython.com/python-histograms/#histograms-in-pure-python
