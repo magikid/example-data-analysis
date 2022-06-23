@@ -37,6 +37,27 @@ def most_popular_bike(data):
     print("Most popular bike: {0}\n".format(popular_bike))
 
 
+# Third analysis
+def ride_length_stats(data):
+    median = data["Total duration (ms)"].median()
+    mean = data["Total duration (ms)"].mean()
+    print("Ride length statistics:")
+    print("Median ride length: {0}ms\nMean ride length: {1}ms\n".format(median, mean))
+
+    if median < mean:
+        print(
+            "Since the mean is higher than the median, there were some rides that were really long."
+        )
+    elif median > mean:
+        print(
+            "Since the median is higher than the mean, there were some rides that were really short."
+        )
+    else:
+        print(
+            "The median and the mean are the same so all the ride lengths were evenly distributed."
+        )
+
+
 def read_csv():
     data = pd.read_csv("2015 Q1.csv", header=0)
     return data
@@ -64,6 +85,7 @@ def analyze_data(data):
         popular_start_days[row["Start date"].dayofweek] += 1
     ascii_histogram(popular_start_days)
     most_popular_bike(data)
+    ride_length_stats(data)
 
 
 raw_data = read_csv()
