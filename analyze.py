@@ -20,17 +20,21 @@ def day_of_week_to_name(day_of_week):
     ][day_of_week]
 
 
+# First analysis
 # Found here: https://realpython.com/python-histograms/#histograms-in-pure-python
 def ascii_histogram(seq):
+    print("Popular days:")
     for k in range(len(seq)):
         print("{0:10s} {1}".format(day_of_week_to_name(k), "+" * scale_number(seq[k])))
+    print("\n")
 
 
+# Second analysis
 def most_popular_bike(data):
     popular_bike = (
         data.groupby("Bike number").size().sort_values(ascending=False).head(1).index[0]
     )
-    print("Most popular bike: {0}".format(popular_bike))
+    print("Most popular bike: {0}\n".format(popular_bike))
 
 
 def read_csv():
