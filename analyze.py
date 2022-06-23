@@ -40,7 +40,7 @@ def most_popular_bike(data):
 # Third analysis
 def ride_length_stats(data):
     median = data["Total duration (ms)"].median()
-    mean = data["Total duration (ms)"].mean()
+    mean = round(data["Total duration (ms)"].mean(), 2)
     print("Ride length statistics:")
     print("Median ride length: {0}ms\nMean ride length: {1}ms\n".format(median, mean))
 
