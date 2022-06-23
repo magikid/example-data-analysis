@@ -26,6 +26,13 @@ def ascii_histogram(seq):
         print("{0:10s} {1}".format(day_of_week_to_name(k), "+" * scale_number(seq[k])))
 
 
+def most_popular_bike(data):
+    popular_bike = (
+        data.groupby("Bike number").size().sort_values(ascending=False).head(1).index[0]
+    )
+    print("Most popular bike: {0}".format(popular_bike))
+
+
 def read_csv():
     data = pd.read_csv("2015 Q1.csv", header=0)
     return data
@@ -43,15 +50,16 @@ def clean_data(data):
             "Subscription Type": "string",
         }
     )
-    cleaned_data = cleaned_data.dropna(subset=["Bike number", "Subscription Type"])
+    cleaned_data = cleaned_data.dropna(subset=["Subscription Type"])
     return cleaned_data
 
 
 def analyze_data(data):
-    days = [0, 0, 0, 0, 0, 0, 0]
+    popular_start_days = [0, 0, 0, 0, 0, 0, 0]
     for (_, row) in data.iterrows():
-        days[row["Start date"].dayofweek] += 1
-    ascii_histogram(days)
+        popular_start_days[row["Start date"].dayofweek] += 1
+    ascii_histogram(popular_start_days)
+    most_popular_bike(data)
 
 
 raw_data = read_csv()
