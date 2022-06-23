@@ -9,6 +9,18 @@ def scale_number(number):
     return int((number - min) / (max - min) * scale_factor)
 
 
+def day_of_week_to_name(day_of_week):
+    return [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+    ][day_of_week]
+
+
 # Found here: https://realpython.com/python-histograms/#histograms-in-pure-python
 def ascii_histogram(seq):
     for k in range(len(seq)):
