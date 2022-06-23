@@ -78,6 +78,7 @@ def clean_data(data):
     cleaned_data = cleaned_data.dropna(subset=["Subscription Type"])
     return cleaned_data
 
+
 def find_daily_popularity(data):
     most_popular_day = 0
     popular_start_days = [0, 0, 0, 0, 0, 0, 0]
@@ -89,6 +90,7 @@ def find_daily_popularity(data):
             most_popular_day_name = day_of_week_to_name(i)
     print("Most popular day: {0}".format(most_popular_day_name))
     ascii_histogram(popular_start_days)
+
 
 def analyze_data(data):
     find_daily_popularity(data)
