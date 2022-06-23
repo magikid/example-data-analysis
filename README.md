@@ -18,3 +18,19 @@ pip install -r requirements.txt
 ```bash
 python analysis.py
 ```
+
+## Features used
+### Read data in
+I used `pandas.read_csv` function to read my CSV file.
+
+### Manipulate and clean your data
+I created my own function to clean the data by setting the field types and dropping a column that I didn't need.
+
+### Analyze your data
+I have three functions marked by comments that are doing analysis of the data.  One function creates a histogram.  One function finds the most popular bike.  One function finds the mean and median of the ride lengths.
+
+### Visualize your data
+Each of my analyses print out their results to the console.  One of them prints out a histogram of the data.  This area still needs work.
+
+### Interpret your data and graphical output
+
