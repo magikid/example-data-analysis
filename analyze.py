@@ -1,4 +1,3 @@
-import sys
 import pandas as pd
 
 # Found here: https://stackoverflow.com/a/66015360
@@ -24,8 +23,7 @@ def day_of_week_to_name(day_of_week):
 # Found here: https://realpython.com/python-histograms/#histograms-in-pure-python
 def ascii_histogram(seq):
     for k in range(len(seq)):
-        print(scale_number(seq[k]))
-        # print("{0:5d} {1}".format(k, "+" * scale_number(seq[k])))
+        print("{0:10s} {1}".format(day_of_week_to_name(k), "+" * scale_number(seq[k])))
 
 
 def read_csv():
