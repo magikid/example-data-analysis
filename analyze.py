@@ -31,10 +31,8 @@ def ascii_histogram(seq):
 
 # Second analysis
 def most_popular_bike(data):
-    popular_bike = (
-        data.groupby("Bike number").size().sort_values(ascending=False).head(1).index[0]
-    )
-    print("Most popular bike: {0}\n".format(popular_bike))
+    popular_bike = data.groupby("Bike number").size().sort_values(ascending=False).head(1)
+    print("Most popular bike: {0} with {1} rides\n".format(popular_bike.index[0], popular_bike.values[0]))
 
 
 # Third analysis
