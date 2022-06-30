@@ -1,2 +1,3 @@
 black==19.10b0
 pandas==1.4.2
+pyarrow==8.0.0

@@ -1,3 +1,5 @@
+from genericpath import exists
+from os import getenv
 import pandas as pd
 
 # Found here: https://stackoverflow.com/a/66015360
@@ -93,12 +95,23 @@ def find_daily_popularity(data):
 
 
 def analyze_data(data):
-    find_daily_popularity(data)
+    print("!!! Finding most popular bike...")
     most_popular_bike(data)
+    print("!!! Finding ride length statistics...")
     ride_length_stats(data)
+    print("!!! Finding most popular day...")
+    find_daily_popularity(data)
 
 
-raw_data = read_csv()
-cleaned_data = clean_data(raw_data)
+if (not exists("cleaned_data.feather")):
+    print("Reading csv")
+    raw_data = read_csv()
+    print("Cleaning data")
+    cleaned_data = clean_data(raw_data)
+    cleaned_data.to_feather("cleaned_data.feather", compression="zstd", compression_level=20)
+else:
+    print("Reading feather")
+    cleaned_data = pd.read_feather("cleaned_data.feather")
+print("Analyzing data")
 analyzed_data = analyze_data(cleaned_data)
 # test
