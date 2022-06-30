@@ -62,18 +62,15 @@ def read_csv():
 
 
 def clean_data(data):
-    cleaned_data = data.astype(
+    cleaned_data = data.dropna(subset=["Subscription Type", "Start station", "End station"])
+    cleaned_data = cleaned_data.astype(
         {
-            "Total duration (ms)": "int64",
+            "Total duration (ms)": "int32",
             "Start date": "datetime64",
-            "Start station": "string",
             "End date": "datetime64",
-            "End station": "string",
             "Bike number": "string",
-            "Subscription Type": "string",
         }
     )
-    cleaned_data = cleaned_data.dropna(subset=["Subscription Type"])
     return cleaned_data
 
 
